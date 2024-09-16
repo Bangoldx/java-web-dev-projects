@@ -1,0 +1,23 @@
+restaurant name code cafe
+
+Menu class
+updated?
+add instance to hashmap using.put(), loop through for category
+print menu items based on category, nested loop within if/else if statements?
+add
+
+MenuItems array/arraylist
+fields : item name = private = String
+         description = private = String
+         cost = private = double
+         category = private = String
+         new = private = boolean
+         getters/setters
+
+public Class (name, description, cost, category, new){
+this.name
+this.description
+ect.
+ect.
+
+}
