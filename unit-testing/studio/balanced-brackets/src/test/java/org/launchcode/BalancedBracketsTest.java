@@ -12,59 +12,59 @@ class BalancedBracketsTest {
     }
 
     @Test
-    public void onlyBracketsReturnsTrue(){
+    public void onlyBracketsReturnsTrue() {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
     }
-
     @Test
-    public void openClosedBracketOrder(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("]code["));
+    public void onlyClosingBracketReturnsFalse() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
     }
-
     @Test
-    public void hasOnlyOpeningBracket(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[code"));
+    public void ReturnsTrueWithOtherChar () {
+        assertTrue(BalancedBrackets.hasBalancedBrackets( "[word]"));
     }
-
     @Test
-    public void hasOnlyClosingBracket(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("code]"));
+    public void RetunrsFalseWithOtherChar () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]word["));
     }
-
     @Test
-    public void hasNoBrackets(){
-        assertTrue(BalancedBrackets.hasBalancedBrackets(""));
+    public void MultipleBrackets () {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[] [] []"));
     }
-
     @Test
-    public void hasMisNestedBracket(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[code]]"));
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[[code]"));
+    public void FalseMultipleBrackets () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("][ ][ ]["));
     }
-
     @Test
-    public void hasNestedBracket(){
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[launch[code]]"));
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[[launch]code]"));
+    public void MixMatchBrackets () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[[]"));
     }
-
     @Test
-    public void hasTwoSetsOfBrackets(){
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[launch][code]"));
+    public void MixedBrackets () {
+        assertFalse((BalancedBrackets.hasBalancedBrackets("[]]")));
     }
-
     @Test
-    public void hasTwoSetsOfBracketsFirstSetIncorrect(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("]launch[[code]"));
+    public void  StringNoBracker () {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("word"));
     }
-
-   @Test
-    public void hasStringOpening(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("code["));
-   }
-   @Test
-    public void hasStringClosing(){
-        assertFalse(BalancedBrackets.hasBalancedBrackets("]code"));
-   }
-
+    @Test
+    public void OneClosing () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
+    }
+    @Test
+    public void OneOpening () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("["));
+    }
+    @Test
+    public void StringOpening () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("word]"));
+    }
+    @Test
+    public void StringClosing () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[word"));
+    }
+    @Test
+    public void MixStringBracket () {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("[wo][rd"));
+    }
 }
